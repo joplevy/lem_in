@@ -6,7 +6,7 @@
 #    By: jplevy <jplevy@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/03/10 13:21:18 by jplevy            #+#    #+#              #
-#    Updated: 2016/10/10 16:28:53 by jplevy           ###   ########.fr        #
+#    Updated: 2016/10/13 18:08:22 by jplevy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,8 @@ OBJ_NAME = $(COM_NAME:.c=.o)
 OBJ_NAME_LI = $(LI_NAME:.c=.o)
 LIBFT_PATH = ./libft/
 LIBFT_NAME = libft.a
+MLX_PATH = ./minilibx_macos/
+MLX_NAME = libmlx.a
 RM = rm -f
 
 all: $(NAME_LI)
@@ -29,12 +31,14 @@ all: $(NAME_LI)
 $(NAME_LI): $(OBJ_NAME) $(OBJ_NAME_LI) $(OBJ_NAME_BO)
 	@echo "Creating libft"
 	@$(MAKE) -C $(LIBFT_PATH)
+	@echo "Creating mlx"
+	@$(MAKE) -C $(MLX_PATH) > /dev/null
 	@echo "  Well done"
 	@echo "Creating lem_in"
 	@$(CC) -o $(NAME_LI) $(OBJ_NAME) $(OBJ_NAME_LI) -L. $(LIBFT_PATH)$(LIBFT_NAME)
 	@echo "  Well done"
 	@echo "Creating bonus"
-	@$(CC) -o $(NAME_BO) $(OBJ_NAME) $(OBJ_NAME_BO) -L. $(LIBFT_PATH)$(LIBFT_NAME)
+	@$(CC) -o $(NAME_BO) $(OBJ_NAME) $(OBJ_NAME_BO) -L. $(LIBFT_PATH)$(LIBFT_NAME) $(MLX_PATH)$(MLX_NAME) -framework OpenGL -framework AppKit #-L. $(MLX_PATH)$(MLX_NAME)
 	@echo "  Well done"
 
 %.o: %.c
@@ -44,6 +48,7 @@ $(NAME_LI): $(OBJ_NAME) $(OBJ_NAME_LI) $(OBJ_NAME_BO)
 
 clean:
 	@$(MAKE) -C $(LIBFT_PATH) clean
+	@$(MAKE) -C $(MLX_PATH) clean  > /dev/null
 	@$(RM) $(OBJ_NAME) $(OBJ_NAME_LI) $(OBJ_NAME_BO)
 
 fclean: clean
