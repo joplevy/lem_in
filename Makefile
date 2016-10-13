@@ -3,39 +3,38 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jplevy <marvin@42.fr>                      +#+  +:+       +#+         #
+#    By: jplevy <jplevy@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/03/10 13:21:18 by jplevy            #+#    #+#              #
-#    Updated: 2016/05/10 23:34:55 by joeyplevy        ###   ########.fr        #
+#    Updated: 2016/10/10 16:28:53 by jplevy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME_CH = checker
-NAME_PS = push_swap
+NAME_BO = graphical_view
+NAME_LI = lem_in
 CC = gcc
 CFLAG = -Wall -Werror -Wextra
-CH_NAME = checker_files/main_ch.c checker_files/check.c
-PS_NAME = push_swap_files/main_ps.c push_swap_files/sort.c\
-			push_swap_files/doubles.c
-COM_NAME = commun_files/list.c commun_files/read.c commun_files/oper.c
-OBJ_NAME_CH = $(CH_NAME:.c=.o)
+BO_NAME = bonus_files/main_bo.c
+LI_NAME = lem_in_files/main_li.c
+COM_NAME = 
+OBJ_NAME_BO = $(BO_NAME:.c=.o)
 OBJ_NAME = $(COM_NAME:.c=.o)
-OBJ_NAME_PS = $(PS_NAME:.c=.o)
+OBJ_NAME_LI = $(LI_NAME:.c=.o)
 LIBFT_PATH = ./libft/
 LIBFT_NAME = libft.a
 RM = rm -f
 
-all: $(NAME_PS)
+all: $(NAME_LI)
 
-$(NAME_PS): $(OBJ_NAME) $(OBJ_NAME_PS) $(OBJ_NAME_CH)
+$(NAME_LI): $(OBJ_NAME) $(OBJ_NAME_LI) $(OBJ_NAME_BO)
 	@echo "Creating libft"
 	@$(MAKE) -C $(LIBFT_PATH)
 	@echo "  Well done"
-	@echo "Creating push_swap"
-	@$(CC) -o $(NAME_PS) $(OBJ_NAME) $(OBJ_NAME_PS) -L. $(LIBFT_PATH)$(LIBFT_NAME)
+	@echo "Creating lem_in"
+	@$(CC) -o $(NAME_LI) $(OBJ_NAME) $(OBJ_NAME_LI) -L. $(LIBFT_PATH)$(LIBFT_NAME)
 	@echo "  Well done"
-	@echo "Creating checker"
-	@$(CC) -o $(NAME_CH) $(OBJ_NAME) $(OBJ_NAME_CH) -L. $(LIBFT_PATH)$(LIBFT_NAME)
+	@echo "Creating bonus"
+	@$(CC) -o $(NAME_BO) $(OBJ_NAME) $(OBJ_NAME_BO) -L. $(LIBFT_PATH)$(LIBFT_NAME)
 	@echo "  Well done"
 
 %.o: %.c
@@ -45,10 +44,10 @@ $(NAME_PS): $(OBJ_NAME) $(OBJ_NAME_PS) $(OBJ_NAME_CH)
 
 clean:
 	@$(MAKE) -C $(LIBFT_PATH) clean
-	@$(RM) $(OBJ_NAME) $(OBJ_NAME_PS) $(OBJ_NAME_CH)
+	@$(RM) $(OBJ_NAME) $(OBJ_NAME_LI) $(OBJ_NAME_BO)
 
 fclean: clean
 	@$(MAKE) -C $(LIBFT_PATH) fclean
-	@$(RM) $(NAME_CH) $(NAME_PS)
+	@$(RM) $(NAME_BO) $(NAME_LI)
 
 re: fclean all
