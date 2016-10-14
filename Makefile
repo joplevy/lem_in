@@ -6,7 +6,7 @@
 #    By: jplevy <jplevy@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/03/10 13:21:18 by jplevy            #+#    #+#              #
-#    Updated: 2016/10/13 18:08:22 by jplevy           ###   ########.fr        #
+#    Updated: 2016/10/14 18:42:02 by jplevy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = gcc
 CFLAG = -Wall -Werror -Wextra
 BO_NAME = bonus_files/main_bo.c
 LI_NAME = lem_in_files/main_li.c
-COM_NAME = 
+COM_NAME = common_files/parse.c 
 OBJ_NAME_BO = $(BO_NAME:.c=.o)
 OBJ_NAME = $(COM_NAME:.c=.o)
 OBJ_NAME_LI = $(LI_NAME:.c=.o)
