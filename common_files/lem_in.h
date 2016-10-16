@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lem_in.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jplevy <jplevy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: joeyplevy <joeyplevy@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/10 16:22:39 by jplevy            #+#    #+#             */
-/*   Updated: 2016/10/14 17:45:43 by jplevy           ###   ########.fr       */
+/*   Updated: 2016/10/16 20:27:15 by joeyplevy        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include "../libft/libft.h"
 # include "../minilibx_macos/mlx.h"
 # include <stdlib.h>
+# include <stdio.h>
 
 typedef struct		s_fourm
 {
@@ -26,22 +27,18 @@ typedef struct		s_fourm
 	t_list			*link;
 }					t_fourm;
 
-typedef struct		s_coord
-{
-	int				x;
-	int				y;
-}					t_coord;
-
 typedef struct		s_room
 {
 	char			*name;
-	t_coord			pos;
+	int				x;
+	int				y;
 }					t_room;
 
 typedef struct		s_comm
 {
 	char			*comm;
 	t_list			*room;
+	t_list			*link;
 }					t_comm;
 
 typedef struct		s_link
@@ -49,6 +46,11 @@ typedef struct		s_link
 	t_list			*r1;
 	t_list			*r2;
 }					t_link;
+typedef struct		s_coord
+{
+	int				x;
+	int				y;
+}					t_coord;
 /*
 ** bonus_files
 */

@@ -6,7 +6,7 @@
 #    By: jplevy <jplevy@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/01/04 14:21:43 by jplevy            #+#    #+#              #
-#    Updated: 2016/10/10 16:04:49 by jplevy           ###   ########.fr        #
+#    Updated: 2016/09/08 07:05:33 by jplevy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -95,11 +95,14 @@ RM = rm -f
 all: $(NAME)
 
 $(NAME): $(OBJ_NAME)
+	# @$(CC) $(CFLAG) $(SRC_NAME)
 	@$(AR) $(NAME) $(OBJ_NAME)
 	@$(RLIB) $(NAME)
 
 %.o: %.c
+	@echo $@
 	@$(CC) $(CFLAG) -o $@ -c $<
+	@echo "  Well done"
 
 clean:
 	@$(RM) $(OBJ_NAME)
