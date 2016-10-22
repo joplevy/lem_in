@@ -6,7 +6,7 @@
 /*   By: joeyplevy <joeyplevy@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/10 16:05:40 by jplevy            #+#    #+#             */
-/*   Updated: 2016/10/17 19:00:34 by joeyplevy        ###   ########.fr       */
+/*   Updated: 2016/10/21 19:22:36 by joeyplevy        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_print_fourm(t_fourm f)
 
 	tmp = f.room;
 	tmp1 = f.comm;
-	printf("%d\n", f.nb);
+	ft_printf("%d\n", f.nb);
 	while (tmp)
 	{
 		if (tmp == f.start)
@@ -31,7 +31,7 @@ void	ft_print_fourm(t_fourm f)
 			ft_putendl(((t_comm*)(tmp1->content))->comm);
 			tmp1 = tmp1->next;
 		}
-		printf("%s %d %d\n", ((t_room*)(tmp->content))->name, \
+		ft_printf("%s %d %d\n", ((t_room*)(tmp->content))->name, \
 			((t_room*)(tmp->content))->x, ((t_room*)(tmp->content))->y);
 		tmp = tmp->next;
 	}
@@ -43,7 +43,7 @@ void	ft_print_fourm(t_fourm f)
 				ft_putendl(((t_comm*)(tmp1->content))->comm);
 				tmp1 = tmp1->next;
 			}
-		printf("%s-%s\n", ((t_room*)((((t_link*)(tmp->content))->r1)\
+		ft_printf("%s-%s\n", ((t_room*)((((t_link*)(tmp->content))->r1)\
 		->content))->name, ((t_room*)((((t_link*)(tmp->content))->r2)\
 		->content))->name);
 		tmp = tmp->next;

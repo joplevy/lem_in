@@ -6,7 +6,7 @@
 /*   By: joeyplevy <joeyplevy@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/10 16:03:19 by jplevy            #+#    #+#             */
-/*   Updated: 2016/10/18 13:59:51 by joeyplevy        ###   ########.fr       */
+/*   Updated: 2016/10/21 21:33:35 by joeyplevy        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ void	ft_put_links(void *mlx, void *win, t_coord scale, t_list *links)
 	tmp = links;
 	while (tmp)
 	{
-		// printf("%s-%s\n", ((t_room*)((((t_link*)(tmp->content))->r1)\
+		// ft_printf("%s-%s\n", ((t_room*)((((t_link*)(tmp->content))->r1)\
 		// ->content))->name, ((t_room*)((((t_link*)(tmp->content))->r2)\
 		// ->content))->name);
 		t1.x = 50 + scale.x / 2 + ((t_room*)((((t_link*)(tmp->content))->r1)\
@@ -119,6 +119,7 @@ int		main(void)
 	t_coord	scale;
 	void	*mlx;
 	void	*win;
+	void	*img;
 
 	f = ft_parse();
 	if (f.nb <= 0 || !(f.start) || !(f.end) || !(f.room) || !(f.link) \
@@ -127,8 +128,15 @@ int		main(void)
 	scale = ft_get_scale(f.room);
 	mlx = mlx_init();
 	win = mlx_new_window(mlx, 1600, 800, "lem_in graphical viem");
-	ft_put_rooms(mlx, win, scale, f.room);
-	ft_put_links(mlx, win, scale, f.link);
+	img = mlx_new_image(mlx, 1600, 800);
+	mlx_string_put(mlx, img, 10, 10, 0x0FECE13, "room");
+	mlx_string_put(mlx, img, 10, 25, 0x09acd32, "start");
+	mlx_string_put(mlx, img, 10, 40, 0x0b4120f, "end");
+	mlx_string_put(mlx, img, 10, 55, 0x0FFFFFF, "right : next step");
+	mlx_string_put(mlx, img, 10, 70, 0x0FFFFFF, "esc : close");
+	ft_put_links(mlx, img, scale, f.link);
+	ft_put_rooms(mlx, img, scale, f);
+	mlx_put_image_to_window(mlx, win, img, 0, 0);
 	mlx_key_hook(win, my_key_func, 0);
 	mlx_loop(mlx);
 	return (0);

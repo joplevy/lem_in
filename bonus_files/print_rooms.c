@@ -6,7 +6,7 @@
 /*   By: joeyplevy <joeyplevy@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/17 22:48:17 by joeyplevy         #+#    #+#             */
-/*   Updated: 2016/10/17 22:49:08 by joeyplevy        ###   ########.fr       */
+/*   Updated: 2016/10/21 19:58:03 by joeyplevy        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,24 +55,32 @@ t_coord	ft_get_scale(t_list *rooms)
 	return (ret);
 }
 
-void	ft_put_rooms(void *mlx, void *win, t_coord scale, t_list *rooms)
+void	ft_put_rooms(void *mlx, void *win, t_coord scale, t_fourm rooms)
 {
 	t_coord	i;
 	t_coord	merge;
 	t_list	*tmp;
+	int		color;
 
 	i.y = 50;
-	tmp = rooms;
+	tmp = rooms.room;
 	merge.x = scale.x / 5;
 	merge.y = scale.y / 5;
 	while (tmp)
 	{
+		if (tmp == rooms.start)
+			color = 0x9acd32;
+		else if (tmp == rooms.end)
+			color = 0xb4120f;
+		else
+			color = 0xfece13;
 		i.y = 50 + merge.y + scale.y * ((t_room*)(tmp->content))->y;
-		while (i.y < 50 - merge.y + scale.y * (((t_room*)(tmp->content))->y + 1))
+		while (i.y < 50 - merge.y + scale
+			.y * (((t_room*)(tmp->content))->y + 1))
 		{
 			i.x = 50 + merge.x + scale.x * ((t_room*)(tmp->content))->x;
 			while (i.x++ < 50 - merge.x + scale.x * (((t_room*)(tmp->content))->x + 1))
-				mlx_pixel_put(mlx, win, i.x, i.y, 0x00FECE13);
+				mlx_pixel_put(mlx, win, i.x, i.y, color);
 			i.y += 1;
 		}
 		tmp = tmp->next;

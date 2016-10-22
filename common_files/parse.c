@@ -6,7 +6,7 @@
 /*   By: joeyplevy <joeyplevy@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/14 17:46:08 by jplevy            #+#    #+#             */
-/*   Updated: 2016/10/17 18:49:19 by joeyplevy        ###   ########.fr       */
+/*   Updated: 2016/10/21 19:23:28 by joeyplevy        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int		ft_get_fourm(t_fourm *fourm)
 			// tmp = ret.comm;
 			// while (tmp)
 			// {
-			// 	printf("comment : %s on link %s-%s\n", ((t_comm*)(tmp->content))->comm, ((t_room*)((((t_link*)((((t_comm*)(tmp->content))->link)->content))->r1)->content))->name, ((t_room*)((((t_link*)((((t_comm*)(tmp->content))->link)->content))->r2)->content))->name);
+			// 	ft_printf("comment : %s on link %s-%s\n", ((t_comm*)(tmp->content))->comm, ((t_room*)((((t_link*)((((t_comm*)(tmp->content))->link)->content))->r1)->content))->name, ((t_room*)((((t_link*)((((t_comm*)(tmp->content))->link)->content))->r2)->content))->name);
 			// 	tmp = tmp->next;
 			// }
 t_fourm	ft_parse(void)

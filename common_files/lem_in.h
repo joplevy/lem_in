@@ -6,7 +6,7 @@
 /*   By: joeyplevy <joeyplevy@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/17 18:02:35 by joeyplevy         #+#    #+#             */
-/*   Updated: 2016/10/18 01:45:17 by joeyplevy        ###   ########.fr       */
+/*   Updated: 2016/10/21 19:39:02 by joeyplevy        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int					my_key_func(int keycode, void *param);
 /*
 ** 		print_rooms.c
 */
-void				ft_put_rooms(void *mlx, void *win, t_coord scale, t_list *rooms);
+void				ft_put_rooms(void *mlx, void *win, t_coord scale, t_fourm rooms);
 t_coord				ft_get_scale(t_list *rooms);
 int					ft_get_doubles(t_list *rooms);
 
