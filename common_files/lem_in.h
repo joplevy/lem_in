@@ -6,7 +6,7 @@
 /*   By: joeyplevy <joeyplevy@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/17 18:02:35 by joeyplevy         #+#    #+#             */
-/*   Updated: 2016/10/21 19:39:02 by joeyplevy        ###   ########.fr       */
+/*   Updated: 2016/10/22 20:33:28 by joeyplevy        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include "../minilibx_macos/mlx.h"
 # include <stdlib.h>
 # include <stdio.h>
+
+# define C_MLX ((t_mlx*)(mlx))
 
 typedef struct		s_fourm
 {
@@ -53,6 +55,18 @@ typedef struct		s_coord
 	int				y;
 }					t_coord;
 
+typedef struct		s_mlx
+{
+	void			*mlx;
+	void			*win;
+	void			*img;
+	char			*p;
+	int				bpp;
+	int				sl;
+	int				endian;
+	t_coord			scale;
+}					t_mlx;
+
 /*
 ** bonus_files
 */
@@ -67,6 +81,14 @@ int					my_key_func(int keycode, void *param);
 void				ft_put_rooms(void *mlx, void *win, t_coord scale, t_fourm rooms);
 t_coord				ft_get_scale(t_list *rooms);
 int					ft_get_doubles(t_list *rooms);
+
+/*
+**
+*/
+void				ft_draw_high_line(void *mlx, void *win, t_coord p1, t_coord p2);
+void				ft_draw_line(void *mlx, void *win, t_coord p1, t_coord p2);
+void				ft_put_links(void *mlx, void *win, t_coord scale, t_list *links);
+void				ft_init_map(void *mlx, void *win, t_fourm f, t_coord scale);
 
 /*
 ** common_files
@@ -98,4 +120,5 @@ t_comm				*ft_new_comm(char *buff);
 */
 void				ft_error(void);
 int					ft_isnb(char *str, char end);
+void				ft_swap_point(t_coord *a, t_coord *b);
 #endif

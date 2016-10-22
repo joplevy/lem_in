@@ -6,7 +6,7 @@
 #    By: joeyplevy <joeyplevy@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/03/10 13:21:18 by jplevy            #+#    #+#              #
-#    Updated: 2016/10/20 22:43:08 by joeyplevy        ###   ########.fr        #
+#    Updated: 2016/10/22 19:04:25 by joeyplevy        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,8 @@ NAME_LI = lem_in
 CC = gcc
 CFLAG = -Wall -Werror -Wextra
 BO_NAME = bonus_files/main_bo.c \
-			bonus_files/print_rooms.c
+			bonus_files/print_rooms.c \
+			bonus_files/map.c
 LI_NAME = lem_in_files/main_li.c
 COM_NAME = common_files/parse.c \
 			common_files/room.c \
