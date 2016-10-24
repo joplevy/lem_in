@@ -6,7 +6,7 @@
 /*   By: joeyplevy <joeyplevy@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/17 18:02:35 by joeyplevy         #+#    #+#             */
-/*   Updated: 2016/10/22 20:33:28 by joeyplevy        ###   ########.fr       */
+/*   Updated: 2016/10/24 03:09:37 by joeyplevy        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ typedef struct		s_mlx
 	int				sl;
 	int				endian;
 	t_coord			scale;
+	t_fourm			f;
+	t_list			*fourms;
 }					t_mlx;
 
 /*
