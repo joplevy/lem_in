@@ -89,10 +89,10 @@ void	ft_put_links(void *mlx, void *win, t_coord scale, t_list *links)
 void	ft_init_map(void *mlx, void *win, t_fourm f, t_coord scale)
 {
 	mlx_string_put(mlx, win, 10, 10, 0x0FECE13, "room");
-	mlx_string_put(mlx, win, 10, 25, 0x09acd32, "start");
-	mlx_string_put(mlx, win, 10, 40, 0x0b4120f, "end");
-	mlx_string_put(mlx, win, 10, 55, 0x0FFFFFF, "right : next step");
-	mlx_string_put(mlx, win, 10, 70, 0x0FFFFFF, "esc : close");
+	mlx_string_put(mlx, win, 10, 30, 0x09acd32, "start");
+	mlx_string_put(mlx, win, 10, 50, 0x0b4120f, "end");
+	mlx_string_put(mlx, win, 10, 70, 0x0FFFFFF, "right : next step");
+	mlx_string_put(mlx, win, 10, 90, 0x0FFFFFF, "esc : close");
 	ft_put_links(mlx, win, scale, f.link);
 	ft_put_rooms(mlx, win, scale, f);
 }

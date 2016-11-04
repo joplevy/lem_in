@@ -95,7 +95,6 @@ RM = rm -f
 all: $(NAME)
 
 $(NAME): $(OBJ_NAME)
-	# @$(CC) $(CFLAG) $(SRC_NAME)
 	@$(AR) $(NAME) $(OBJ_NAME)
 	@$(RLIB) $(NAME)
 

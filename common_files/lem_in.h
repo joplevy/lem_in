@@ -15,8 +15,8 @@
 # include "../libft/libft.h"
 # include "../minilibx_macos/mlx.h"
 # include <stdlib.h>
-# include <stdio.h>
-
+# include <float.h>
+# include <math.h>
 # define C_MLX ((t_mlx*)(mlx))
 
 typedef struct		s_fourm
@@ -76,6 +76,9 @@ typedef struct		s_mlx
 ** 		main_bo.c
 */
 int					my_key_func(int keycode, void *param);
+t_list				*ft_new_fourm(t_list *start);
+t_list				*ft_init_fourms(int nb, t_list *start);
+int					ft_check_arrived(t_mlx *mlx);
 
 /*
 ** 		print_rooms.c
@@ -85,12 +88,29 @@ t_coord				ft_get_scale(t_list *rooms);
 int					ft_get_doubles(t_list *rooms);
 
 /*
-**
+** 		map.c
 */
 void				ft_draw_high_line(void *mlx, void *win, t_coord p1, t_coord p2);
 void				ft_draw_line(void *mlx, void *win, t_coord p1, t_coord p2);
 void				ft_put_links(void *mlx, void *win, t_coord scale, t_list *links);
 void				ft_init_map(void *mlx, void *win, t_fourm f, t_coord scale);
+
+/*
+** 		graphical.c
+*/
+void				ft_print_cross(char **p, int pos, int col);
+void				ft_img_init(void *mlx);
+void				ft_put_fourms(t_mlx *mlx);
+void				ft_write_turn(char *str, void *mlx);
+int					ft_put_turn(void *mlx);
+
+/*
+** 		moves.c
+*/
+t_list				*ft_get_room(t_mlx *mlx, char *room);
+int					ft_is_linked(t_list *r1, t_list *r2, t_list *links);
+int					ft_move(t_mlx *mlx ,char *act);
+int					ft_new_turn(t_mlx *mlx);
 
 /*
 ** common_files

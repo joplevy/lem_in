@@ -38,9 +38,9 @@ int		ft_get_fourm(t_fourm *fourm)
 	{
 		if (ft_strcmp(buff, "##start") == 0)
 			(s.x)++;
-		else if (ft_strcmp(buff, "##end") == 0)
+		if (ft_strcmp(buff, "##end") == 0)
 			(s.y)++;
-		else if (buff[0] == '#')
+		if (buff[0] == '#')
 			ft_lstadd_back(&c, ft_lstnew(ft_new_comm(buff), sizeof(t_comm)));
 		else if (ft_strchr(buff, ' ') != NULL)
 		{
@@ -63,12 +63,7 @@ int		ft_get_fourm(t_fourm *fourm)
 	}
 	return (1);
 }
-			// tmp = ret.comm;
-			// while (tmp)
-			// {
-			// 	ft_printf("comment : %s on link %s-%s\n", ((t_comm*)(tmp->content))->comm, ((t_room*)((((t_link*)((((t_comm*)(tmp->content))->link)->content))->r1)->content))->name, ((t_room*)((((t_link*)((((t_comm*)(tmp->content))->link)->content))->r2)->content))->name);
-			// 	tmp = tmp->next;
-			// }
+
 t_fourm	ft_parse(void)
 {
 	t_fourm	ret;

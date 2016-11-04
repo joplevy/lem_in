@@ -16,7 +16,9 @@ CC = gcc
 CFLAG = -Wall -Werror -Wextra
 BO_NAME = bonus_files/main_bo.c \
 			bonus_files/print_rooms.c \
-			bonus_files/map.c
+			bonus_files/map.c \
+			bonus_files/graphical.c \
+			bonus_files/moves.c
 LI_NAME = lem_in_files/main_li.c
 COM_NAME = common_files/parse.c \
 			common_files/room.c \
@@ -35,10 +37,9 @@ all: $(NAME_LI)
 
 $(NAME_LI): $(OBJ_NAME) $(OBJ_NAME_LI) $(OBJ_NAME_BO)
 	@echo "Creating libft"
-	@$(MAKE) -C $(LIBFT_PATH)
+	@$(MAKE) -C $(LIBFT_PATH) > /dev/null
 	@echo "Creating mlx"
 	@$(MAKE) -C $(MLX_PATH) > /dev/null
-	@echo "  Well done"
 	@echo "Creating lem_in"
 	@$(CC) -o $(NAME_LI) $(OBJ_NAME) $(OBJ_NAME_LI) -L. $(LIBFT_PATH)$(LIBFT_NAME)
 	@echo "  Well done"
