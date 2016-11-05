@@ -34,6 +34,7 @@ typedef struct		s_room
 	char			*name;
 	int				x;
 	int				y;
+	int				m;
 }					t_room;
 
 typedef struct		s_comm

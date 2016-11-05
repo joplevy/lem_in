@@ -25,6 +25,7 @@ t_room	*ft_new_room(char *buff)
 	ret->name = NULL;
 	ret->x = -1;
 	ret->y = -1;
+	ret->m = -1;
 	while (buff[i] != ' ')
 		i++;
 	if ((tmp = (char*)malloc(i + 1)))

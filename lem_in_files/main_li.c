@@ -75,17 +75,46 @@ t_list	*ft_get_linked_rooms(t_list *ref, t_fourm f)
 	}
 	return (ret);
 }
+ // ParcoursLargeur(Graphe G, Sommet s):
+ //       f = CreerFile();
+ //       f.enfiler(s);
+ //       marquer(s);
+ //       tant que la file est non vide
+ //                s = f.defiler();
+ //                afficher(s);
+ //                pour tout voisin t de s dans G
+ //                         si t non marqué
+ //                                 f.enfiler(t);
+ //                                 marquer(t);
+void	ft_parcours(t_list *s, t_fourm f, t_list *bros, int i)
+{
+	t_list	*queue;
+	t_list	*tmp;
+
+	queue = NULL;
+	ft_lstadd_back(&queue, ft_new_r(s));
+	ft_lstadd_back(&queue, bros);
+	tmp = queue;
+	while (tmp)
+	{
+		if (((t_room*)(((t_list*)(tmp->content))->content))->m == -1)
+		{
+			((t_room*)(((t_list*)(tmp->content))->content))->m = i;
+			ft_printf("room %s, dist = %d\n", ((t_room*)(((t_list*)(tmp->content))->content))->name, i);
+			ft_parcours(((t_list*)(tmp->content)), f, ft_get_linked_rooms(s, f), i + 1);
+		}
+		tmp = tmp->next;
+	}
+}
 
 int		main()
 {
 	t_fourm	f;
-	t_list	*lr;
 
 	f = ft_parse();
-	lr = ft_get_linked_rooms(f.end, f);
-	ft_putchar('\n');
+	ft_parcours(f.end, f, NULL, 0);
 	if (f.nb <= 0 || !(f.start) || !(f.end) || !(f.room) || !(f.link))
 		ft_error();
-	ft_print_fourm(f);
+	// ft_print_fourm(f);
 	return (0);
 }
