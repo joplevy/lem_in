@@ -6,7 +6,7 @@
 /*   By: joeyplevy <joeyplevy@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/10 16:05:40 by jplevy            #+#    #+#             */
-/*   Updated: 2016/10/21 19:22:36 by joeyplevy        ###   ########.fr       */
+/*   Updated: 2016/11/05 22:26:11 by joeyplevy        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,7 +142,7 @@ int		ft_is_free(t_list *room, t_list *ants, t_fourm f)
 	t_list	*tmp;
 
 	tmp = ants;
-	if (((t_list*)(tmp->content))->content == f.end)
+	if (((t_list*)(room->content)) == f.end)
 		return (1);
 	while (tmp)
 	{
@@ -165,6 +165,8 @@ int 	ft_ant_move(t_fourm f, t_list *ants, int i, int nb)
 	j = nb;
 	while (--j > 0)
 		ant = ant->next;
+	if (((t_list*)(ant->content)) == f.end)
+		return (0);
 	// ft_putendl(((t_room*)(((t_list*)(ant->content))->content))->name);
 	child = ft_get_possible(((t_list*)(ant->content)), f);
 	tmp = child;
