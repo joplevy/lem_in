@@ -23,6 +23,7 @@ LI_NAME = lem_in_files/main_li.c
 COM_NAME = common_files/parse.c \
 			common_files/room.c \
 			common_files/link_comm.c \
+			common_files/ant.c \
 			common_files/tools.c
 OBJ_NAME_BO = $(BO_NAME:.c=.o)
 OBJ_NAME = $(COM_NAME:.c=.o)

@@ -77,8 +77,6 @@ typedef struct		s_mlx
 ** 		main_bo.c
 */
 int					my_key_func(int keycode, void *param);
-t_list				*ft_new_fourm(t_list *start);
-t_list				*ft_init_fourms(int nb, t_list *start);
 int					ft_check_arrived(t_mlx *mlx);
 
 /*
@@ -144,4 +142,11 @@ t_comm				*ft_new_comm(char *buff);
 void				ft_error(void);
 int					ft_isnb(char *str, char end);
 void				ft_swap_point(t_coord *a, t_coord *b);
+
+/*
+** 		ant.c
+*/
+t_list				*ft_new_fourm(t_list *start);
+t_list				*ft_init_fourms(int nb, t_list *start);
+
 #endif
