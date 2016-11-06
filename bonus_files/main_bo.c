@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_bo.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joeyplevy <joeyplevy@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jplevy <jplevy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/10 16:03:19 by jplevy            #+#    #+#             */
-/*   Updated: 2016/10/24 03:48:30 by joeyplevy        ###   ########.fr       */
+/*   Updated: 2016/11/06 17:38:41 by jplevy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,13 @@ int		main(void)
 	t_mlx	mlx;
 
 	mlx.f = ft_parse();
-	if (mlx.f.nb <= 0 || !(mlx.f.start) || !(mlx.f.end) || !(mlx.f.room) || !(mlx.f.link) \
-		|| ft_get_doubles(mlx.f.room) == 1)
+	if (mlx.f.nb <= 0 || !(mlx.f.start) || !(mlx.f.end) || !(mlx.f.room) \
+		|| !(mlx.f.link) || ft_get_doubles(mlx.f.room) == 1)
 		ft_error();
 	mlx.scale = ft_get_scale(mlx.f.room);
 	mlx.mlx = mlx_init();
 	mlx.win = mlx_new_window(mlx.mlx, 1600, 800, "lem_in graphical viem");
-	ft_init_map(mlx.mlx, mlx.win, mlx.f, mlx.scale);	
+	ft_init_map(mlx.mlx, mlx.win, mlx.f, mlx.scale);
 	mlx.img = mlx_new_image(mlx.mlx, 1600, 800);
 	mlx.p = mlx_get_data_addr(mlx.img, &(mlx.bpp), &(mlx.sl), &(mlx.endian));
 	mlx.fourms = ft_init_fourms(mlx.f.nb, mlx.f.start);

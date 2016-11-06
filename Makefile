@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: joeyplevy <joeyplevy@student.42.fr>        +#+  +:+       +#+         #
+#    By: jplevy <jplevy@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/03/10 13:21:18 by jplevy            #+#    #+#              #
-#    Updated: 2016/10/22 19:04:25 by joeyplevy        ###   ########.fr        #
+#    Updated: 2016/11/06 17:31:38 by jplevy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,9 @@ BO_NAME = bonus_files/main_bo.c \
 			bonus_files/map.c \
 			bonus_files/graphical.c \
 			bonus_files/moves.c
-LI_NAME = lem_in_files/main_li.c
+LI_NAME = lem_in_files/main_li.c \
+			lem_in_files/parcours.c \
+			lem_in_files/roaming.c
 COM_NAME = common_files/parse.c \
 			common_files/room.c \
 			common_files/link_comm.c \

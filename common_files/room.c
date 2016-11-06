@@ -3,14 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   room.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joeyplevy <joeyplevy@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jplevy <jplevy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/17 17:44:51 by joeyplevy         #+#    #+#             */
-/*   Updated: 2016/10/17 18:48:53 by joeyplevy        ###   ########.fr       */
+/*   Updated: 2016/11/06 18:51:17 by jplevy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
+
+t_room	*ft_room_init(void)
+{
+	t_room	*ret;
+
+	if (!(ret = (t_room*)malloc(sizeof(t_room))))
+		return (NULL);
+	ret->name = NULL;
+	ret->x = -1;
+	ret->y = -1;
+	ret->m = -1;
+	return (ret);
+}
 
 t_room	*ft_new_room(char *buff)
 {
@@ -19,13 +32,8 @@ t_room	*ft_new_room(char *buff)
 	int		i;
 	int		j;
 
-	if(!(ret = (t_room*)malloc(sizeof(t_room))))
-		return (NULL);
+	ret = ft_room_init();
 	i = 0;
-	ret->name = NULL;
-	ret->x = -1;
-	ret->y = -1;
-	ret->m = -1;
 	while (buff[i] != ' ')
 		i++;
 	if ((tmp = (char*)malloc(i + 1)))
@@ -65,20 +73,17 @@ int		ft_get_rooms(t_fourm *fourm, char *buff, t_coord *s, t_list *c)
 	if (ft_check_room(((t_room*)(room->content))->name, fourm->room) != NULL)
 		return (0);
 	ft_lstadd_back(&(fourm->room), room);
-	if ((s->x == 1 && s->y == 1) || s->x > 1 || s->y > 1)
+	if ((s->x == 1 && s->y == 1) || s->x > 1 || s->y > 1 || \
+	(s->x == 1 && (fourm->start)) || (s->y == 1 && (fourm->end)))
 		return (0);
 	if (s->x == 1)
 	{
 		s->x = 0;
-		if ((fourm->start))
-			return (0);
 		fourm->start = room;
 	}
 	if (s->y == 1)
 	{
 		s->y = 0;
-		if ((fourm->end))
-			return (0);
 		fourm->end = room;
 	}
 	if (c)

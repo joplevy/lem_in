@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   graphical.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joeyplevy <joeyplevy@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jplevy <jplevy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/10 16:03:19 by jplevy            #+#    #+#             */
-/*   Updated: 2016/10/24 03:48:30 by joeyplevy        ###   ########.fr       */
+/*   Updated: 2016/11/06 18:21:05 by jplevy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,10 @@ void	ft_put_fourms(t_mlx *mlx)
 	tmp = mlx->fourms;
 	while (tmp)
 	{
-		pos = 1600 * (mlx->scale.y * ((t_room*)(((t_list*)(tmp->content))->content))->y \
-			+ 50 + mlx->scale.y / 2) * 4 + (mlx->scale.x * \
-			((t_room*)(((t_list*)(tmp->content))->content))->x + 50 + mlx->scale.x / 2) * 4;
+		pos = 1600 * (mlx->scale.y * ((t_room*)(((t_list*)(tmp->content))->\
+			content))->y + 50 + mlx->scale.y / 2) * 4 + (mlx->scale.x * \
+			((t_room*)(((t_list*)(tmp->content))->content))->x + 50 + \
+			mlx->scale.x / 2) * 4;
 		ft_print_cross(&(mlx->p), pos, 0x2D1E8D);
 		tmp = tmp->next;
 	}
@@ -108,11 +109,11 @@ int		ft_put_turn(void *mlx)
 		&(C_MLX->endian));
 	ft_img_init(mlx);
 	if (!(ft_new_turn(mlx)))
-		return(0);
+		return (0);
 	ft_put_fourms(mlx);
 	str = ft_itoa(++t);
 	ft_write_turn(str, mlx);
-	free (str);
+	free(str);
 	mlx_put_image_to_window(C_MLX->mlx, C_MLX->win, C_MLX->img, 0, 0);
 	return (1);
 }

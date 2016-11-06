@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tools.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joeyplevy <joeyplevy@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jplevy <jplevy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/17 18:15:32 by joeyplevy         #+#    #+#             */
-/*   Updated: 2016/10/22 18:58:50 by joeyplevy        ###   ########.fr       */
+/*   Updated: 2016/11/06 18:22:03 by jplevy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_error(void)
 {
 	ft_putendl("error");
-	exit (0);
+	exit(0);
 }
 
 int		ft_isnb(char *str, char end)
