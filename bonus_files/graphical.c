@@ -46,7 +46,7 @@ void	ft_img_init(void *mlx)
 	i = -1;
 	while (++i < 1600 * 800 * 4)
 		if ((i + 1) % 4 == 0)
-			(C_MLX->p)[i] = 255;
+			(C_MLX->p)[i] = (char)255;
 	tmp = C_MLX->f.room;
 	while (tmp)
 	{
